@@ -1,21 +1,35 @@
 import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import EventList from "./EventList";
-import EventForm from "../eventForm/EventForm";
 import { sampleData } from "./../../../app/api/sampleData";
 
-const EventDashbord = ({ formOpen, setFormOpen }) => {
+const EventDashbord = () => {
   const [events, setEvents] = useState(sampleData);
+
+  // const handelCreateEvent = (event) => {
+  //   setEvents([...events, event]);
+  // };
+
+  // const handelUpdateEvents = (updatedEvent) => {
+  //   setEvents(
+  //     events.map((evt) => (evt.id === updatedEvent.id ? updatedEvent : evt))
+  //   );
+  //   selectEvent(null);
+  // };
+
+  const handelDeleteEvent = (eventId) => {
+    setEvents(events.filter((evt) => evt.id !== eventId));
+  };
 
   return (
     <div>
       <Grid>
         <Grid.Column width={10}>
-          <EventList events={events} />
+          <EventList events={events} deleteEvent={handelDeleteEvent} />
         </Grid.Column>
 
         <Grid.Column width={6}>
-          {formOpen && <EventForm setFormOpen={setFormOpen} />}
+          <h2>Event filters</h2>
         </Grid.Column>
       </Grid>
     </div>
