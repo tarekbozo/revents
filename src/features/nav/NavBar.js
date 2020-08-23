@@ -4,7 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import SignedOutMenu from "./SignedOutMenu";
 import SignedInMenu from "./SignedInMenu.js";
 
-const NavBar = ({ setFormOpen }) => {
+const NavBar = () => {
   const history = useHistory();
   const [auth, setAuth] = useState(false);
 
@@ -20,6 +20,7 @@ const NavBar = ({ setFormOpen }) => {
           Re-vents
         </Menu.Item>
         <Menu.Item as={NavLink} to="/events" name="Events" />
+        <Menu.Item as={NavLink} to="/sandbox" name="Sandbox" />
         {auth && (
           <Menu.Item as={NavLink} to="/createEvent">
             <Button positive inverted content="Create Event" />

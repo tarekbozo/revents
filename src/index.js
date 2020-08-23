@@ -4,14 +4,22 @@ import ReactDOM from "react-dom";
 import "semantic-ui-css/semantic.min.css";
 import "./app/layout/styles.css";
 import App from "./app/layout/App";
+import { Provider } from "react-redux";
+import { configureStore } from "./app/store/configuereStore";
+import ScrollToTop from "./app/layout/ScrollToTop";
+
+const store = configureStore();
 
 const rootEl = document.getElementById("root");
 
 const render = () => {
   ReactDOM.render(
-    <Router>
-      <App />
-    </Router>,
+    <Provider store={store}>
+      <Router>
+        <ScrollToTop />
+        <App />
+      </Router>
+    </Provider>,
     rootEl
   );
 };
