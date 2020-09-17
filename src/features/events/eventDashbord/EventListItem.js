@@ -1,9 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Segment, Item, Icon, List, Button } from "semantic-ui-react";
-import EventListAttendee from "./EventListAttendee";
-import { useDispatch } from "react-redux";
-import { deleteEvent } from "./../eventActions";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Segment, Item, Icon, List, Button } from 'semantic-ui-react';
+import EventListAttendee from './EventListAttendee';
+import { useDispatch } from 'react-redux';
+import { deleteEvent } from './../eventActions';
+import { format } from 'date-fns';
 
 const EventListItem = ({ event }) => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const EventListItem = ({ event }) => {
       <Segment>
         <Item.Group>
           <Item>
-            <Item.Image size="tiny" circular src={event.hostPhotoURL} />
+            <Item.Image size='tiny' circular src={event.hostPhotoURL} />
             <Item.Content>
               <Item.Header content={event.title} />
               <Item.Description>Hosted by {event.hostedBy}</Item.Description>
@@ -22,8 +23,8 @@ const EventListItem = ({ event }) => {
       </Segment>
       <Segment>
         <span>
-          <Icon name="clock" /> {event.date}
-          <Icon name="marker" /> {event.venue}
+          <Icon name='clock' /> {format(event.date, 'MMMM d , yyyy h:mm a')}
+          <Icon name='marker' /> {event.venue}
         </span>
       </Segment>
       <Segment secondary>
@@ -38,15 +39,15 @@ const EventListItem = ({ event }) => {
         <Button
           as={Link}
           to={`/events/${event.id}`}
-          color="teal"
-          floated="right"
-          content="View"
+          color='teal'
+          floated='right'
+          content='View'
         />
         <Button
           onClick={() => dispatch(deleteEvent(event.id))}
-          color="red"
-          floated="right"
-          content="Delete"
+          color='red'
+          floated='right'
+          content='Delete'
         />
       </Segment>
     </Segment.Group>
