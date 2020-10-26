@@ -6,7 +6,6 @@ import PlacesAutocomplete, {
 
 export default function TestPlaceInput({ setLocation }) {
   const [address, setAddress] = useState('');
-  console.log(setAddress);
 
   function handleChange(address) {
     setAddress(address);

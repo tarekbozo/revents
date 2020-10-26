@@ -1,10 +1,10 @@
-import React from "react";
-import { Grid } from "semantic-ui-react";
-import EventDetailedHeader from "./EventDetailedHeader";
-import EventDetailedInfo from "./EventDetailedInfo";
-import EventDetailedChat from "./EventDetailedChat";
-import EventDetailedSideBar from "./EventDetailedSideBar";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { Grid } from 'semantic-ui-react';
+import EventDetailedHeader from './EventDetailedHeader';
+import EventDetailedInfo from './EventDetailedInfo';
+import EventDetailedChat from './EventDetailedChat';
+import EventDetailedSideBar from './EventDetailedSideBar';
+import { useSelector } from 'react-redux';
 
 const EventDetailedPage = ({ match }) => {
   const event = useSelector((state) =>
